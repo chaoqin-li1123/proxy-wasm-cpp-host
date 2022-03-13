@@ -359,6 +359,8 @@ public:
     }
   }
 
+  bool isFailed() { return wasm_handle_->wasm()->isFailed(); }
+
   std::shared_ptr<PluginBase> &plugin() { return plugin_; }
   std::shared_ptr<WasmBase> &wasm() { return wasm_handle_->wasm(); }
 

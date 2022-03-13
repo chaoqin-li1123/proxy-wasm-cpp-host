@@ -562,7 +562,7 @@ std::shared_ptr<PluginHandleBase> getOrCreateThreadLocalPlugin(
   auto it = local_plugins.find(key);
   if (it != local_plugins.end()) {
     auto plugin_handle = it->second.lock();
-    if (plugin_handle) {
+    if (plugin_handle && !plugin_handle->isFailed()) {
       return plugin_handle;
     }
     // Remove stale entry.
